@@ -2,6 +2,8 @@
 
 namespace Skaisser\Organizze\Api;
 
+use Skaisser\Organizze\Entity\Category as CategoryEntity;
+
 // Entities
 
 /**
@@ -9,41 +11,84 @@ namespace Skaisser\Organizze\Api;
  *
  * @author Shirleyson Kaisser <skaisser@gmail.com>
  */
-class Category extends Skaisser\Organizze\Api\AbstractApi
+class Category extends \Skaisser\Organizze\Api\AbstractApi
 {
     /**
      * Get all Categories.
      *
-     * @param array $filters (optional) Filters Array
-     *
-     * @return array Cities Array
+     * @return array Category Array
      */
-    public function getAll(array $filters = [])
+    public function getAll()
     {
-        $categories = $this->adapter->get(sprintf('%s/categories?%s', $this->endpoint, http_build_query($filters)));
+        $categories = $this->adapter->get(sprintf('%s/categories', $this->endpoint));
 
         $categories = json_decode($categories);
 
-        $this->extractMeta($categories);
-
         return array_map(function ($category) {
-            return new CategorEntity($category);
-        }, $categories->data);
+            return new CategoryEntity($category);
+        }, $categories);
     }
 
     /**
-     * Get City By Id.
+     * Get Category by Id.
      *
-     * @param int $id City Id
+     * @param int $id Category Id
      *
-     * @return CityEntity
+     * @return CategoryEntity
      */
     public function getById($id)
     {
-        $city = $this->adapter->get(sprintf('%s/cities/%s', $this->endpoint, $id));
+        $category = $this->adapter->get(sprintf('%s/categories/%s', $this->endpoint, $id));
 
-        $city = json_decode($city);
+        $category = json_decode($category);
 
-        return new CityEntity($city);
+        return new CategoryEntity($category);
+    }
+
+    /**
+     * Delete Category by Id.
+     *
+     * @param int $id Category Id
+     *
+     * @return bool
+     */
+    public function deleteById($id)
+    {
+        $category = $this->adapter->delete(sprintf('%s/categories/%s', $this->endpoint, $id));
+
+        $category = json_decode($category);
+
+        return $category->deleted;
+    }
+
+    /**
+     * Create a new Category.
+     *
+     * @param array $data
+     *
+     * @return bool
+     */
+    public function create(array $data)
+    {
+        $category = $this->adapter->post(sprintf('%s/categories', $this->endpoint), $data);
+        $category = json_decode($category);
+
+        return new CategoryEntity($category);
+    }
+
+    /**
+     * Update a Category Category.
+     *
+     * @param int   $id
+     * @param array $data
+     *
+     * @return bool
+     */
+    public function update($id, array $data)
+    {
+        $category = $this->adapter->put(sprintf('%s/categories/%s', $this->endpoint, $id), $data);
+        $category = json_decode($category);
+
+        return new CategoryEntity($category);
     }
 }

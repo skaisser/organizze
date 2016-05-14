@@ -3,11 +3,11 @@
 namespace Skaisser\Organizze\Entity;
 
 /**
- * City Entity.
+ * Category Entity.
  *
  * @author Shirleyson Kaisser <skaisser@gmail.com>
  */
-final class City extends \Skaisser\Organizze\Entity\AbstractEntity
+final class Category extends \Skaisser\Organizze\Entity\AbstractEntity
 {
     /**
      * @var int
@@ -15,27 +15,17 @@ final class City extends \Skaisser\Organizze\Entity\AbstractEntity
     public $id;
 
     /**
-     * @var int
-     */
-    public $ibgeCode;
-
-    /**
      * @var string
      */
     public $name;
 
     /**
+     * @var string
+     */
+    public $color;
+
+    /**
      * @var int
      */
-    public $districtCode;
-
-    /**
-     * @var string
-     */
-    public $district;
-
-    /**
-     * @var string
-     */
-    public $state;
+    public $parent_id;
 }

@@ -33,17 +33,18 @@ class GuzzleHttpAdapter implements AdapterInterface
     /**
      * Constructor.
      *
+     * @param string               $email  Access E-mail
      * @param string               $token  Access Token
      * @param ClientInterface|null $client Client Instance
      */
-    public function __construct($token, ClientInterface $client = null)
+    public function __construct($email, $token, ClientInterface $client = null)
     {
         if (version_compare(ClientInterface::VERSION, '6') === 1) {
-            $this->client = $client ?: new Client(['headers' => ['access_token' => $token]]);
+            $this->client = $client ?: new Client(['auth' => [$email, $token]]);
         } else {
             $this->client = $client ?: new Client();
 
-            $this->client->setDefaultOption('headers/access_token', $token);
+            $this->client->setAuth($email, $token);
         }
     }
 
@@ -85,7 +86,7 @@ class GuzzleHttpAdapter implements AdapterInterface
     public function put($url, $content = '')
     {
         $options = [];
-        $options['body'] = $content;
+        $options['form_params'] = $content;
 
         try {
             $this->response = $this->client->put($url, $options);
