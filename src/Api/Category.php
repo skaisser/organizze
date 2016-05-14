@@ -3,14 +3,13 @@
 namespace Skaisser\Organizze\Api;
 
 // Entities
-use Skaisser\Organizze\Entity\City as CityEntity;
 
 /**
- * City API Endpoint.
+ * Category API Endpoint.
  *
  * @author Shirleyson Kaisser <skaisser@gmail.com>
  */
-class City extends \Skaisser\Organizze\Api\AbstractApi
+class Category extends Skaisser\Organizze\Api\AbstractApi
 {
     /**
      * Get all cities.

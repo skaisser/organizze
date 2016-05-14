@@ -1,0 +1,13 @@
+{
+  
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "/Users/skaisser/Code/hospedar"
+        }
+    ],
+    "require": {
+        "skaisser/organizze": "dev-master"   
+    },
+
+}
