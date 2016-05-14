@@ -2,9 +2,8 @@
 
 namespace Skaisser\Organizze\Api;
 
-use Skaisser\Organizze\Entity\Category as CategoryEntity;
-
 // Entities
+use Skaisser\Organizze\Entity\Category as CategoryEntity;
 
 /**
  * Category API Endpoint.

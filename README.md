@@ -8,8 +8,24 @@ Essa biblioteca serve para facilitar automação e interação com a plataforma 
 --------
 
 # Example
+Contas [ORGANIZZE MAIS OU EMPRESARIAL]
+-------
 
-Category
+```php
+// Pegar todas as Contas
+$accounts = $organizze->account()->getAll();
+
+// Pegar uma Conta por id
+$account = $organizze->account()->getById(690486);
+
+// Criar uma nova Conta | tipo  disponivel -> Conta Corrente: checking, Conta Poupança: savings, Outros: other
+$account = $organizze->account()->create(['name' => 'Banco Itau', 'description' => 'Ag 0123', 'type' => 'checking']);
+
+// Modificar uma nova Conta | tipo  disponivel -> Conta Corrente: checking, Conta Poupança: savings, Outros: other
+$account = $organizze->account()->update(:id, array);
+```
+
+Categoria
 -------
 
 ```php

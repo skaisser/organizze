@@ -5,6 +5,7 @@ namespace Skaisser\Organizze;
 // API's
 use Skaisser\Organizze\Adapter\AdapterInterface;
 use Skaisser\Organizze\Api\Category;
+use Skaisser\Organizze\Api\Account;
 
 /**
  * Organizze API Wrapper.
@@ -38,5 +39,10 @@ class Organizze
     public function category()
     {
         return new Category($this->adapter);
+    }
+
+    public function account()
+    {
+        return new Account($this->adapter);
     }
 }
