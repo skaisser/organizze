@@ -4,6 +4,7 @@ namespace Skaisser\Organizze;
 
 // API's
 use Skaisser\Organizze\Adapter\AdapterInterface;
+use Skaisser\Organizze\Api\Category;
 
 /**
  * Organizze API Wrapper.

@@ -12,7 +12,7 @@ namespace Skaisser\Organizze\Api;
 class Category extends Skaisser\Organizze\Api\AbstractApi
 {
     /**
-     * Get all cities.
+     * Get all Categories.
      *
      * @param array $filters (optional) Filters Array
      *
@@ -20,15 +20,15 @@ class Category extends Skaisser\Organizze\Api\AbstractApi
      */
     public function getAll(array $filters = [])
     {
-        $cities = $this->adapter->get(sprintf('%s/cities?%s', $this->endpoint, http_build_query($filters)));
+        $categories = $this->adapter->get(sprintf('%s/categories?%s', $this->endpoint, http_build_query($filters)));
 
-        $cities = json_decode($cities);
+        $categories = json_decode($categories);
 
-        $this->extractMeta($cities);
+        $this->extractMeta($categories);
 
-        return array_map(function ($city) {
-            return new CityEntity($city->city);
-        }, $cities->data);
+        return array_map(function ($category) {
+            return new CategorEntity($category);
+        }, $categories->data);
     }
 
     /**
