@@ -63,10 +63,10 @@ Transações (Lançamentos)
 // Pegar uma transação especifica por id
 $transaction = $organizze->transaction()->getById(:id);
 
-// Criar uma nova Transação | Veja Skaisser/Entity/Transaction para parametros disponiveis.
+// Criar uma nova Transação | Veja Skaisser/Organizze/Entity/Transaction para parametros disponiveis.
 $transaction = $organizze->transaction()->create(array);
 
-// Modificar uma  Transação | Veja Skaisser/Entity/Transaction para parametros disponiveis.
+// Modificar uma  Transação | Veja Skaisser/Organizze/Entity/Transaction para parametros disponiveis.
 $account = $organizze->account()->update(:id, array);
 ```
 
