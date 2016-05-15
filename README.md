@@ -121,9 +121,6 @@ Créditos
 -------
 
 * [Shirleyson Kaisser](https://twitter.com/skaisser)
-* [Graham Campbell](https://twitter.com/GrahamCampbell)
-
-
 * Esta biblioteca foi feita com base na API DigitalOcean disponível [neste link](https://github.com/toin0u/DigitalOcean)
 
 
