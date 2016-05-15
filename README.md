@@ -12,13 +12,13 @@ Recomendamos sua instalação com o  [composer](http://getcomposer.org).
 
 Para instalar a biblioteca basta executar o seguinte comando no seu terminal
 ```bash
-$ composer require skaisser/organizze:dev-master
+$ composer require skaisser/organizze:~0.1
 ```
 Ou você pode editar seu arquivo composer.json
 ```json
 {
     "require": {
-        "skaisser/organizze": "dev-master"
+        "skaisser/organizze": "~0.1"
     }
 }
 ```
